@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -la --numeric-uid-gid -t .
+ls -la --numeric-uid-gid -t . | sort -k 9
