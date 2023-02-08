@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -avu --include='*.html' --exclude='*' "$(pwd)"/ /tmp/
+find "$(pwd)" -name '*.html' -exec cp -u {} /tmp/ \;
