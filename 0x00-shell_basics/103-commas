@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Ap | awk -v ORS=', ' '/./{print}END{print "\n"}'
+printf " %s," ../ ./ */ *
