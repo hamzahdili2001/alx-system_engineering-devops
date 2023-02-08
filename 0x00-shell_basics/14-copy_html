@@ -1,0 +1,2 @@
+#!/bin/bash
+rsync -avu --include='*.html' --exclude='*' ./ ../
