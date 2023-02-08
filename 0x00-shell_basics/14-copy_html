@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -avu --include='*.html' --exclude='*' "$(pwd)"/ "$(dirname '$src_dir')"
+rsync -avu --include='*.html' --exclude='*' "$(pwd)"/ /tmp/
