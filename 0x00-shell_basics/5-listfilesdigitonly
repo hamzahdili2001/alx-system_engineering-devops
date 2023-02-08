@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lha --numeric-uid-gid -t . | awk 'NF {if ($0=="." || $0=="..") next; if (NR==2) {printf "total %s\n", $2} print $0}'
+ls -la --numeric-uid-gid -t .
