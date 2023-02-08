@@ -1,2 +1,2 @@
 #!/bin/bash
-find "$(pwd)" -name '*.html' -exec cp -u {} /tmp/ \;
+cp -u *.html ../
