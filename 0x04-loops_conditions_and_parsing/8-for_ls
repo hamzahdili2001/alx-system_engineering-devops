@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 # list files
 
-for file in *-*
+list=$(ls)
+for file in $list
 do
-  if [ ! -f "$file" ] || [[ $file == .* ]]
-  then
-    continue
-  fi
-
-  echo "${file#*-}"
+	echo "$file" | cut -d "-" -f2
 done
