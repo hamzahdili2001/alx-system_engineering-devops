@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# list files
+
+for file in *-*
+do
+  if [ ! -f "$file" ] || [[ $file == .* ]]
+  then
+    continue
+  fi
+
+  echo "${file#*-}"
+done
