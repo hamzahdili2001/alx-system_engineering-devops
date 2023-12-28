@@ -24,7 +24,6 @@ acronym within the context of the web stack.
 - **High Availability Cluster**: Explanation of high availability clusters, including active-active and active-passive configurations.
 - **HTTPS**: Introduction to HTTPS (Hypertext Transfer Protocol Secure) and its role in secure communication over a computer network.
 - **Firewall**: An overview of firewalls and their role in network security.
-- **Learning Objectives**: The intended learning outcomes or goals related to the above topics.
 
 ## Application server vs web server
 The terms "application server vs. web server" are commonly used together on the Internet, despite their contrasting implications. Web servers primarily handle requests for static content from a website, while application servers provide access to business logic for generating dynamic content. In a typical setup, web servers deliver static content, and application servers generate dynamic content. A reverse proxy and load balancer are used to route traffic to the appropriate server. The distinction between the two types of servers has become less clear due to their overlapping functionalities. NGINX Plus is a widely used solution for efficiently managing web and application servers, providing features such as reverse proxy, load balancing, caching, and request routing.
