@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 # Installs and sets up HAProxy
 install_haproxy() {
-    apt-get install -y software-properties-common
-    add-apt-repository -y ppa:vbernat/haproxy-1.8
     apt update
-    apt-get update
-    apt-get install -y haproxy=1.8.\*
+    apt-get install -y haproxy
 }
 
 configure_haproxy() {
@@ -39,8 +36,8 @@ frontend www
     default_backend servers
 backend servers
     balance roundrobin
-    server 265422-web-01 100.26.168.53 check
-    server 265422-web-02 54.237.111.41 check
+    server 265422-web-01 100.26.168.53:80 check
+    server 265422-web-02 54.237.111.41:80 check
 " >$config
 }
 
