@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# configure nginx server with a custom header
+apt-get update -y
+apt-get install nginx -y
+
+echo "Hello World" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+ufw allow 'Nginx HTTP'
+hostname="$(hostname)"
+echo "
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name _;
+
+        error_page 404 /404.html;
+        add_header X-Served-By $hostname;
+
+        location / {
+            root /var/www/html;
+            index index.html;
+        }
+
+        location /redirect_me {
+            return 301 http://www.github.com/hamzahdili2001;
+        }
+
+        location /404 {
+            root /var/www/html;
+            internal;
+        }
+}
+" >/etc/nginx/sites-available/default
+service nginx restart
