@@ -2,10 +2,10 @@
 # configure nginx server with a custom header
 apt-get update -y
 apt-get install nginx -y
-
-echo "Hello World" > /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
 ufw allow 'Nginx HTTP'
+
+echo "Hello World!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 hostname="$(hostname)"
 echo "
 server {
@@ -23,7 +23,7 @@ server {
         }
 
         location /redirect_me {
-            return 301 http://www.github.com/hamzahdili2001;
+            return 301 https://www.github.com/hamzahdili2001;
         }
 
         location /404 {
