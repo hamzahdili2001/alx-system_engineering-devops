@@ -6,15 +6,17 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """"""
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    """function that queries the Reddit API"""
+
+    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+
     headers = {"User-Agent": "Reddit-Agent"}
     response = requests.get(
-        url, headers=headers, allow_redirects=False
+        URL, headers=headers, allow_redirects=False
     )
 
     if response.status_code == 200:
-        response = response.json()
-        return response["data"]["subscribers"]
+        RES = response.json()
+        return RES["data"]["subscribers"]
     else:
         return 0
