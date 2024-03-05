@@ -9,7 +9,7 @@ import requests
 
 def get_subreddit_data(subreddit):
     """function that queries the Reddit API"""
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "MyRedditBot/1.0 (Hamza)"}
     response = requests.get(url, headers=headers)
 
