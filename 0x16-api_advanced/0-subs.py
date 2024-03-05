@@ -7,18 +7,24 @@ is given, the function should return 0.
 import requests
 
 
-def number_of_subscribers(subreddit):
+def get_subreddit_data(subreddit):
     """function that queries the Reddit API"""
-
-    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-
-    headers = {"User-Agent": "0x16.api.advanced"}
-    response = requests.get(
-        URL, headers=headers, allow_redirects=False
-    )
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {
+        "User-Agent": "Custom User Agent"
+    }  # Reddit API requires a User-Agent header
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
-        RES = response.json()
-        return RES["data"]["subscribers"]
+        return response.json()
+    else:
+        return None
+
+
+def number_of_subscribers(subreddit):
+    """function that queries the Reddit API"""
+    data = get_subreddit_data(subreddit)
+    if data and "data" in data and "subscribers" in data["data"]:
+        return data["data"]["subscribers"]
     else:
         return 0
