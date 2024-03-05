@@ -6,17 +6,14 @@ import requests
 
 def top_ten(subreddit):
     """prints the titles of the 10 hottest posts"""
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    headers = {"User-Agent": "Mozilla/5.0"}
-    params = {"limit": 10}
-    response = requests.get(
-        url, headers=headers, params=params, allow_redirects=False
+    URL = "https://www.reddit.com/r/{}/hot.json?limit=10".format(
+        subreddit
     )
-    if response.status_code != 200:
+    headers = {"User-Agent": "Reddit-Agent"}
+    response = requests.get(
+        URL, headers=headers, allow_redirects=False
+    )
+    if response.status_code >= 300:
         print("None")
-        return
-    results = response.json().get("data")
-    [
-        print(c.get("data").get("title"))
-        for c in results.get("children")
-    ]
+    Js = response.json()
+    [print(post["data"]["title"]) for post in Js["data"]["children"]]
