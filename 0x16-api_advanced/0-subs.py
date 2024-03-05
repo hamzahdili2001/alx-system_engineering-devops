@@ -10,15 +10,13 @@ import requests
 def get_subreddit_data(subreddit):
     """function that queries the Reddit API"""
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {
-        "User-Agent": "Custom User Agent"
-    }  # Reddit API requires a User-Agent header
+    headers = {"User-Agent": "MyRedditBot/1.0 (Hamza)"}
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         return response.json()
-    else:
-        return None
+
+    return None
 
 
 def number_of_subscribers(subreddit):
@@ -26,5 +24,5 @@ def number_of_subscribers(subreddit):
     data = get_subreddit_data(subreddit)
     if data and "data" in data and "subscribers" in data["data"]:
         return data["data"]["subscribers"]
-    else:
-        return 0
+
+    return 0
