@@ -19,7 +19,7 @@ def recurse_util(subreddit, hot_list=[], after=None):
     params = {"limit": 100, "after": after}
     response = requests.get(
         url,
-        headers={"User-agent": "MyRedditBot/1.0 (fily)"},
+        headers={"User-agent": "MyRedditBot/1.0 (Hamza)"},
         params=params,
     )
     if response.status_code == 200:
