@@ -6,6 +6,7 @@ is given, the function should return 0.
 """
 
 import requests
+import sys
 
 
 def number_of_subscribers(subreddit):
